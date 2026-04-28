@@ -769,8 +769,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <strong>OGEC</strong> – École Saint Martin Treize-Septiers &nbsp;|&nbsp;
-  Données stockées localement dans votre navigateur.
+  <strong>OGEC</strong> – École Saint Martin Treize-Septiers
 </footer>
 
 <script>
@@ -958,12 +957,10 @@
     });
 
     const BUREAU_POSTES = POSTES_ORDER.filter(p => p !== 'Membre');
-    const bureauPersons = BUREAU_POSTES.flatMap(p => groups[p] || []);
-    const membrePersons = groups['Membre'] || [];
+    const sortByNom = (a, b) => a.nom.localeCompare(b.nom, 'fr');
+    const bureauPersons = BUREAU_POSTES.flatMap(p => (groups[p] || []).sort(sortByNom));
+    const membrePersons = (groups['Membre'] || []).sort(sortByNom);
 
-    let html = '';
-
-    // Section Bureau — toutes les personnes dans une seule grille, badge de poste sur la carte
     if (bureauPersons.length > 0) {
       html += `<div class="section-block">
         <div class="section-block-title">Bureau</div>
@@ -1034,8 +1031,8 @@
     return `<div class="card" id="card-${p.id}">
       <div class="card-photo-wrap">${photo}</div>
       <div class="card-body">
-        <div class="card-name">${escHtml(p.nom)}</div>
-        <div class="card-firstname">${escHtml(p.prenom)}</div>
+        <div class="card-name">${escHtml(p.prenom)}</div>
+        <div class="card-firstname">${escHtml(p.nom)}</div>
         ${p.poste !== 'Membre' ? `<div class="card-role">${escHtml(p.poste)}</div>` : ''}
         ${(p.commissions && p.commissions.length > 0) ? `
         <div class="card-commissions">
@@ -1189,8 +1186,8 @@
       return `<div class="card">
         <div class="card-photo-wrap">${photo}</div>
         <div class="card-body">
-          <div class="card-name">${p.nom}</div>
-          <div class="card-firstname">${p.prenom}</div>
+          <div class="card-name">${p.prenom}</div>
+          <div class="card-firstname">${p.nom}</div>
           ${p.poste !== 'Membre' ? `<div class="card-role">${p.poste}</div>` : ''}
           ${tags}${phone}
         </div>
@@ -1204,8 +1201,9 @@
       if (!groups[p.poste]) groups[p.poste] = [];
       groups[p.poste].push(p);
     });
-    const bureauPersons = BUREAU_POSTES.flatMap(p => groups[p] || []);
-    const membrePersons = groups['Membre'] || [];
+    const sortByNom = (a, b) => a.nom.localeCompare(b.nom, 'fr');
+    const bureauPersons = BUREAU_POSTES.flatMap(p => (groups[p] || []).sort(sortByNom));
+    const membrePersons = (groups['Membre'] || []).sort(sortByNom);
 
     let bodyHTML = '';
     if (bureauPersons.length > 0) {
