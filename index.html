@@ -961,6 +961,7 @@
     const bureauPersons = BUREAU_POSTES.flatMap(p => (groups[p] || []).sort(sortByNom));
     const membrePersons = (groups['Membre'] || []).sort(sortByNom);
 
+    let html = '';
     if (bureauPersons.length > 0) {
       html += `<div class="section-block">
         <div class="section-block-title">Bureau</div>
