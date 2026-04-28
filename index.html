@@ -1229,28 +1229,33 @@
 <title>Trombinoscope OGEC</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html,body{background:#fff !important;color:#222;font-family:Arial,sans-serif;padding:0;margin:0;}
-@page{size:A4 portrait;margin:12mm 10mm;}
-.print-header{background:#6a4e9b !important;color:#fff;padding:16px 24px;display:flex;align-items:center;gap:14px;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
-.print-header img{width:52px;height:52px;object-fit:contain;border-radius:6px;flex-shrink:0;background:#fff;padding:4px;}
-.print-header h1{font-size:22px;font-weight:700;line-height:1.1;}
-.print-header p{font-size:10px;opacity:0.85;text-transform:uppercase;letter-spacing:1px;margin-top:3px;}
-.container{padding:20px 24px 32px;}
-.section-block{margin-bottom:28px;}
-.section-block-title{font-size:22px;font-weight:700;color:#fff;background:linear-gradient(135deg,#6a4e9b,#8c6fbd) !important;display:inline-block;padding:4px 20px 4px 14px;border-radius:0 22px 22px 0;margin-bottom:16px;margin-left:-24px;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
-.cards-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
-.card{background:#fff;border-radius:8px;border:1px solid #e1e1e1;overflow:hidden;display:flex;flex-direction:column;align-items:center;break-inside:avoid;page-break-inside:avoid;}
-.card-photo-wrap{width:100%;background:linear-gradient(135deg,#ede8f5,#d0eaf5) !important;padding:14px 0 10px;display:flex;justify-content:center;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
-.card-photo{width:64px;height:64px;border-radius:50%;object-fit:cover;border:2px solid #fff;}
-.card-avatar{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#6a4e9b,#2eb1d5) !important;display:flex;align-items:center;justify-content:center;color:#fff;font-size:22px;font-weight:700;border:2px solid #fff;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
-.card-body{padding:8px 10px 12px;text-align:center;width:100%;}
-.card-name{font-weight:700;font-size:12px;color:#222;}
-.card-firstname{font-size:11px;color:#555;}
-.card-role{display:inline-block;margin-top:5px;background:#6a4e9b !important;color:#fff !important;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.4px;padding:2px 7px;border-radius:20px;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
-.card-commissions{display:flex;flex-wrap:wrap;gap:3px;justify-content:center;margin-top:5px;}
-.commission-tag{font-size:8px;font-weight:600;padding:1px 5px;border-radius:20px;background:#ede8f5 !important;color:#6a4e9b;border:1px solid #c8b8e8;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
-.card-phone{margin-top:5px;font-size:10px;color:#2eb1d5;}
-.print-footer{text-align:center;font-size:9px;color:#999;margin-top:24px;border-top:1px solid #e1e1e1;padding-top:10px;}
+html,body{background:#fff !important;color:#222;font-family:Arial,sans-serif;padding:0;margin:0;height:100%;}
+@page{size:A4 portrait;margin:8mm 8mm;}
+/* En-tête compact */
+.print-header{background:#6a4e9b !important;color:#fff;padding:8px 16px;display:flex;align-items:center;gap:10px;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+.print-header img{width:38px;height:38px;object-fit:contain;border-radius:4px;flex-shrink:0;background:#fff;padding:3px;}
+.print-header h1{font-size:16px;font-weight:700;line-height:1.1;}
+.print-header p{font-size:8px;opacity:0.85;text-transform:uppercase;letter-spacing:1px;margin-top:2px;}
+/* Contenu */
+.container{padding:8px 10px 6px;}
+.section-block{margin-bottom:8px;}
+.section-block-title{font-size:13px;font-weight:700;color:#fff;background:linear-gradient(135deg,#6a4e9b,#8c6fbd) !important;display:inline-block;padding:2px 14px 2px 10px;border-radius:0 14px 14px 0;margin-bottom:6px;margin-left:-10px;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+/* Grille 6 colonnes */
+.cards-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;align-items:stretch;grid-auto-rows:1fr;}
+/* Carte */
+.card{background:#fff;border-radius:5px;border:1px solid #e1e1e1;overflow:hidden;display:flex;flex-direction:column;align-items:center;break-inside:avoid;page-break-inside:avoid;height:100%;}
+.card-photo-wrap{width:100%;background:linear-gradient(135deg,#ede8f5,#d0eaf5) !important;padding:6px 0 5px;display:flex;justify-content:center;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+.card-photo{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid #fff;}
+.card-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#6a4e9b,#2eb1d5) !important;display:flex;align-items:center;justify-content:center;color:#fff;font-size:15px;font-weight:700;border:2px solid #fff;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+.card-body{padding:4px 4px 5px;text-align:center;width:100%;}
+.card-name{font-weight:700;font-size:9px;color:#222;line-height:1.2;}
+.card-firstname{font-size:8.5px;color:#555;line-height:1.2;}
+.card-role{display:inline-block;margin-top:3px;background:#6a4e9b !important;color:#fff !important;font-size:7px;font-weight:700;text-transform:uppercase;letter-spacing:0.3px;padding:1px 5px;border-radius:10px;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+.card-commissions{display:flex;flex-wrap:wrap;gap:2px;justify-content:center;margin-top:3px;}
+.commission-tag{font-size:6.5px;font-weight:600;padding:1px 4px;border-radius:10px;background:#ede8f5 !important;color:#6a4e9b;border:1px solid #c8b8e8;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+.card-phone{margin-top:3px;font-size:7.5px;color:#2eb1d5;}
+/* Footer */
+.print-footer{text-align:center;font-size:7px;color:#999;margin-top:6px;border-top:1px solid #e1e1e1;padding-top:5px;}
 .print-footer strong{color:#6a4e9b;}
 </style>
 </head><body>
